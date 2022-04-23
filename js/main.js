@@ -1,5 +1,5 @@
 // Definición de la clase que almacenará la fecha 
-// de nacimiento del usuario
+// de nacimiento del usuario y los métodos para el calculo del numero de nacimiento
 
 class fechaNacimiento {
     constructor(dia, mes, año) {
@@ -172,12 +172,6 @@ class fechaNacimiento {
 
 
 }
-
-
-
-// Función que calcula el número de nacimiento, extrayendo los dígitos del año y luego sumando todos los dígitos
-// de la fecha de nacimiento para calcular el número final de nacimiento
-// reduciendo la suma total a un dígito
 
 
 // Inicio ejecución del Script
