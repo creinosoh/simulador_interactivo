@@ -1,3 +1,30 @@
+// Definición de clase persona
+
+class persona {
+    constructor(nombre, apellido, fechaNacimiento) {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.nacimiento = fechaNacimiento;
+
+
+
+        }
+        // Metodo que permite ingresar los datos de una nueva persona haciendo uso de la clase fechaNacimiento para el ingreso de esos datos
+
+
+
+    ingresaNueva() {
+        this.nombre = prompt("Ingresa tu nombre");
+        this.apellido = prompt("Ingresa tu apellido");
+        this.nacimiento.ingresaFechaValida();
+
+        console.log("Persona ingresada es: " + this.nombre + " " + this.apellido);
+
+    }
+
+}
+
+
 // Definición de la clase que almacenará la fecha 
 // de nacimiento del usuario y los métodos para el calculo del numero de nacimiento
 
@@ -174,22 +201,48 @@ class fechaNacimiento {
 }
 
 
-// Inicio ejecución del Script
+// Inicio ejecución del Script, declaración de variables
 
 let dia = 0;
 let mes = 0;
 let año = 0;
+let nombre;
+let apellido;
+let continua;
+let i = 0;
 
-let nuevaFecha = new fechaNacimiento(dia, mes, año);
+// Se crea un array con elementos de la clase persona. La idea es recorrer el array calculando el numero de nacimiento
+// para los objetos del array
 
-console.log("Invocamos el metodo ingresaFecha Valida");
+const listaPersonas = [];
 
-nuevaFecha.ingresaFechaValida();
 
-console.log("Mostramos fecha luego del metodo");
+// Ciclo while para ingresar personas al array las veces que se desee, llamando a los metodos de las clases que nos permiten
+// ingresar los datos
 
-console.log(nuevaFecha);
+do {
 
-console.log("Probando metodo de clase fecha Nacimiento. Naciste en el mes de " + nuevaFecha.calculaNombreMes());
+    listaPersonas.push(new persona(nombre, apellido, new fechaNacimiento(dia, mes, año)));
+    listaPersonas[i].ingresaNueva();
 
-nuevaFecha.calculaNumeroNacimiento();
+
+    continua = prompt("¿Desea ingresar una nueva persona? si/no");
+    console.log(continua);
+    console.log("muestra array en punto i " + i + listaPersonas[i].nombre);
+    i++;
+
+}
+while (continua == "si")
+
+// Una vez ingresados los datos de las personas en el array, calculamos el numero de nacimieto
+// para todas las personas ingresadas utilizando el metodo de la clase fechaNacimiento diseñado para ello
+
+alert("Ahora te contaremos cual es el numero de nacimiento para las personas que ingresaste");
+
+for (const personas of listaPersonas) {
+    alert("el numero de nacimiento para tu amigo(a)  " + personas.nombre + " es: ");
+    personas.nacimiento.calculaNumeroNacimiento();
+    console.log(personas);
+};
+
+console.log("el array de personas es " + listaPersonas);
