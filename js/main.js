@@ -232,6 +232,7 @@ do {
     i++;
 
 }
+
 while (continua == "si")
 
 // Una vez ingresados los datos de las personas en el array, calculamos el numero de nacimieto
