@@ -266,6 +266,11 @@ while (continua == "si")
 let h2_encabezado = document.createElement("h2");
 h2_encabezado.classList.add("text-info");
 h2_encabezado.classList.add("bg-dark");
+h2_encabezado.classList.add("animate__animated");
+h2_encabezado.classList.add("animate__jackInTheBox");
+
+
+
 h2_encabezado.innerText = "Ahora te contaremos cual es el numero de nacimiento para las personas que ingresaste";
 header.appendChild(h2_encabezado);
 console.log(document.body.innerHTML);
