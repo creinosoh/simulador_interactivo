@@ -155,6 +155,9 @@ class fechaNacimiento {
 
         console.log("Entrando al metodo calculaNumeroNacimiento con valor calculado :" + numeroNacimiento);
 
+        // Declaramos variable para incorporar nuevos elementos con DOM
+
+        let nuevo_parrafo = document.createElement("p");
 
         // Entrega numero de nacimiento y significado
 
@@ -162,32 +165,41 @@ class fechaNacimiento {
 
         switch (numeroNacimiento) {
             case 1:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la creatividad, independencia, originalidad, sentido del yo y autosuficiencia. Naturaleza individualista y agresiva. Iniciadores de acciones, espíritu pionero, coraje, extraordinaria voluntad y determinación. Es símbolo del liderazgo, aquellos con capacidades y habilidades para el mando. Ambiciosos y dispuestos a asumir riesgos para llegar a la cima. Llamados a destacar en el trabajo y los negocios.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la creatividad, independencia, originalidad, sentido del yo y autosuficiencia. Naturaleza individualista y agresiva. Iniciadores de acciones, espíritu pionero, coraje, extraordinaria voluntad y determinación. Es símbolo del liderazgo, aquellos con capacidades y habilidades para el mando. Ambiciosos y dispuestos a asumir riesgos para llegar a la cima. Llamados a destacar en el trabajo y los negocios.";
                 break;
             case 2:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la empatía, cooperación, adaptabilidad, consideración hacia los demás, supersensibilidad hacia las necesidades de los demás. Símbolo del equilibrio, la unión y la receptividad. Es buen socio, compañero o pareja; también hace un magnífico papel como arbitro o mediador: Es modesto, sincero, influenciable espiritualmente y buen diplomático.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la empatía, cooperación, adaptabilidad, consideración hacia los demás, supersensibilidad hacia las necesidades de los demás. Símbolo del equilibrio, la unión y la receptividad. Es buen socio, compañero o pareja; también hace un magnífico papel como arbitro o mediador: Es modesto, sincero, influenciable espiritualmente y buen diplomático.";
                 break;
 
             case 3:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nAuto-expresivo en muchas vertientes y con capacidad comunicativa; Es el signo de la expresión artística, sociabilidad, simpatía, superficialidad y espíritu derrochador. Símbolo de la comunicación, la interacción y la neutralidad. Incansable optimismo, felicidad y del disfrute de la vida. Pueden ser amantes divertidos.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nAuto-expresivo en muchas vertientes y con capacidad comunicativa; Es el signo de la expresión artística, sociabilidad, simpatía, superficialidad y espíritu derrochador. Símbolo de la comunicación, la interacción y la neutralidad. Incansable optimismo, felicidad y del disfrute de la vida. Pueden ser amantes divertidos.";
                 break;
             case 4:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nFuerte sentido del orden y los valores. Es el signo de lo práctico, la lealtad, la rigidez y la represión. También es símbolo de la creación, de la lucha contra los límites, de la mentalidad científica, la atención al detalle, capaz de alcanzar logros importantes y con ingenio para la organización. Finas habilidades administrativas.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nFuerte sentido del orden y los valores. Es el signo de lo práctico, la lealtad, la rigidez y la represión. También es símbolo de la creación, de la lucha contra los límites, de la mentalidad científica, la atención al detalle, capaz de alcanzar logros importantes y con ingenio para la organización. Finas habilidades administrativas.";
                 break;
             case 5:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la acción y la inquietud. Es el símbolo de la libertad, la adaptabilidad, el espíritu viajero y aventurero, pero también de la inconsistencia y del abuso de los sentidos. Expansivo y sociable, de nuevas y visionarias ideas; de pensamientos rápidos, polifacético, curioso y explorador; ingenioso a la hora de utilizar la libertad de forma constructiva.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno de la acción y la inquietud. Es el símbolo de la libertad, la adaptabilidad, el espíritu viajero y aventurero, pero también de la inconsistencia y del abuso de los sentidos. Expansivo y sociable, de nuevas y visionarias ideas; de pensamientos rápidos, polifacético, curioso y explorador; ingenioso a la hora de utilizar la libertad de forma constructiva.";
                 break;
             case 6:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del amor, la responsabilidad, la comprensión, pero también de personas entrometidas y celosas. Es un número asociado a la honestidad y fidelidad. En lo positivo su fuerte sentido de la responsabilidad, artístico, equilibrados, comprensivos con los demás, humanitarios, generosos, amantes del hogar y de los asuntos domésticos, prestan ayuda a otros.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del amor, la responsabilidad, la comprensión, pero también de personas entrometidas y celosas. Es un número asociado a la honestidad y fidelidad. En lo positivo su fuerte sentido de la responsabilidad, artístico, equilibrados, comprensivos con los demás, humanitarios, generosos, amantes del hogar y de los asuntos domésticos, prestan ayuda a otros.";
                 break;
             case 7:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del pensamiento, la espiritualidad, la conciencia, el análisis psíquico, la sabiduría. El número del intelecto, el idealismo y la represión. Son personas amantes de la lectura, el estudio y las ansias por aprender. Tendentes a proyectar su vida en una esfera de idealismo y actividad intelectual. Habilidades para el análisis y la investigación y la inteligente búsqueda del conocimiento; mentalidad científica y con capacidad de inventiva; estudiosa, meditadora; de personalidad encantadora; amantes de la soledad y de la paz; perfeccionistas.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del pensamiento, la espiritualidad, la conciencia, el análisis psíquico, la sabiduría. El número del intelecto, el idealismo y la represión. Son personas amantes de la lectura, el estudio y las ansias por aprender. Tendentes a proyectar su vida en una esfera de idealismo y actividad intelectual. Habilidades para el análisis y la investigación y la inteligente búsqueda del conocimiento; mentalidad científica y con capacidad de inventiva; estudiosa, meditadora; de personalidad encantadora; amantes de la soledad y de la paz; perfeccionistas.";
                 break;
             case 8:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del poder, la habilidad ejecutiva, la gestión, poder material y una tendencia al sacrificio pero también a no tener escrúpulos. Habilidades políticas, experto en manejar el poder y la autoridad, trabajan por causas y por alcanzar el reconocimiento, capacidad de decisión y mando.");
-                break;
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del poder, la habilidad ejecutiva, la gestión, poder material y una tendencia al sacrificio pero también a no tener escrúpulos. Habilidades políticas, experto en manejar el poder y la autoridad, trabajan por causas y por alcanzar el reconocimiento, capacidad de decisión y mando.";
+
             case 9:
-                alert("Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del genio artístico, sentido humanitario, tendencia al romance y a lo emotivamente sentimental. Animadamente amistosos y simpáticos, desinteresados, interesados en hacer de buena gana y bien su trabajo. Talento artístico y para la escritura. El número de la persistencia, generosidad y capacidad de empuje.");
+                document.body.appendChild(nuevo_parrafo);
+                nuevo_parrafo.innerText = "Para los nacidos el día " + this.dia + " del mes de " + this.calculaNombreMes() + " del año " + this.año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del genio artístico, sentido humanitario, tendencia al romance y a lo emotivamente sentimental. Animadamente amistosos y simpáticos, desinteresados, interesados en hacer de buena gana y bien su trabajo. Talento artístico y para la escritura. El número de la persistencia, generosidad y capacidad de empuje.";
                 break;
 
             default:
@@ -211,14 +223,24 @@ let apellido;
 let continua;
 let i = 0;
 
-// Se crea un array con elementos de la clase persona. La idea es recorrer el array calculando el numero de nacimiento
-// para los objetos del array
+// Incorporar DOM DOcument Object para el header agregando via JS un titulo con letras blancas y fondo negro
+// También le puse un poco de clases de animación
+
+let header = document.getElementById("header");
+header.innerHTML = '<h1 class="animate__animated animate__bounce text-white bg-dark"> TU NÚMERO DE NACIMIENTO </h1>';
+
+console.log(header.innerText);
+console.log(header.innerHTML);
+
+
+//Se crea un array con elementos de la clase persona. La idea es recorrer el array calculando el numero de nacimiento
+//para los objetos del array
 
 const listaPersonas = [];
 
 
-// Ciclo while para ingresar personas al array las veces que se desee, llamando a los metodos de las clases que nos permiten
-// ingresar los datos
+//Ciclo while para ingresar personas al array las veces que se desee, llamando a los metodos de las clases que nos permiten
+//ingresar los datos
 
 do {
 
@@ -238,10 +260,35 @@ while (continua == "si")
 // Una vez ingresados los datos de las personas en el array, calculamos el numero de nacimieto
 // para todas las personas ingresadas utilizando el metodo de la clase fechaNacimiento diseñado para ello
 
-alert("Ahora te contaremos cual es el numero de nacimiento para las personas que ingresaste");
+// Mediante la utilización de DOM se incorporarán en la página los nombres y números de nacimientos de las diferentes
+// personas ingresadas
+
+let h2_encabezado = document.createElement("h2");
+h2_encabezado.classList.add("text-info");
+h2_encabezado.classList.add("bg-dark");
+h2_encabezado.innerText = "Ahora te contaremos cual es el numero de nacimiento para las personas que ingresaste";
+header.appendChild(h2_encabezado);
+console.log(document.body.innerHTML);
+
+
+// Por cada persona ingresada se agregará un nuevo elemento al HTML mediante la utilización de DOM
+
 
 for (const personas of listaPersonas) {
-    alert("el numero de nacimiento para tu amigo(a)  " + personas.nombre + " es: ");
+
+
+    let nuevo_div_persona = document.createElement("div");
+    document.body.appendChild(nuevo_div_persona);
+    // Incorporamos con DOM Clases para incorporar algunos estilos de texto y fondo Bootstrap
+    nuevo_div_persona.classList.add("p-3");
+    nuevo_div_persona.classList.add("mb-2");
+    nuevo_div_persona.classList.add("bg-info");
+    nuevo_div_persona.classList.add("text-dark");
+
+
+    nuevo_div_persona.innerText = "El numero de nacimiento para " + personas.nombre + " " + personas.apellido + " es: ";
+
+    //"el numero de nacimiento para " + personas.nombre + " es: ");
     personas.nacimiento.calculaNumeroNacimiento();
     console.log(personas);
 };
