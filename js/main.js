@@ -164,7 +164,19 @@ class persona {
                 };
 
             }
+
+            // Limpia las variables para nuevo ingreso
+
+            document.getElementById(idElementoNombre).value = null;
+            document.getElementById(idElementoApellido).value = null;
+            document.getElementById(idElementoDiaNacimiento).value = null;
+
+
+
+
         };
+
+        // Resetea las variables
 
         botonReset.onclick = () => {
 
@@ -217,7 +229,7 @@ let fecha = new Date();
 // También le puse un poco de clases de animación
 
 let header = document.getElementById("header");
-header.innerHTML = `<h1 class="animate__animated animate__bounce text-white bg-dark p-3"> TU NÚMERO DE NACIMIENTO </h1>  <h3 class= "p-3"> Calcula tu número de nacimiento astrológico introduciendo tus datos. Para calcular un nuevo número solo presiona el botón  Reset e ingresa los nuevos valores. Todos los números que calcules quedarán disponibles en la página </h3><br> `;
+header.innerHTML = `<h1 class="animate__animated animate__bounce text-white bg-dark p-3"> TU NÚMERO DE NACIMIENTO </h1>  <h3 class= "p-3"> Calcula tu número de nacimiento astrológico introduciendo tus datos. Para calcular un nuevo número solo ingresa nuevos valores. Todos los números que calcules quedarán disponibles en la página </h3><br> `;
 
 
 //Se crea un array con elementos de la clase persona. La idea es recorrer el array calculando el numero de nacimiento
