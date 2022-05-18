@@ -34,6 +34,7 @@ class persona {
         </div>
         <button id= "calculaNumeroNacimiento${i}" type="button" class="btn btn-dark">Calcula mi número de nacimiento</button>
         <input id= "reset" type="reset" value="Reset" class="btn btn-dark" >
+        <button id= "recuperaNumeroNacimiento${i}" type="button" class="btn btn-dark">Recupera mi número de nacimiento</button>
         <br><br>`
 
 
@@ -43,6 +44,10 @@ class persona {
 
         let botonCalculaNumeroNacimiento = document.getElementById(`calculaNumeroNacimiento${i}`);
         let botonReset = document.getElementById("reset");
+
+        // Botón para recuperar la información del localStorage
+
+        let botonRecuperaDatos = document.getElementById(`recuperaNumeroNacimiento${i}`);
 
 
         // Captura los ID de los elementos del DOM
@@ -73,11 +78,11 @@ class persona {
             this.nacimiento = document.getElementById(idElementoDiaNacimiento).valueAsDate;
 
 
+
             if (this.nombre == null || this.apellido == null || this.nacimiento == null) {
                 alert("Complete todos los valores");
 
             } else {
-
 
                 let dia = this.nacimiento.getDate() + 1;
                 let mes = this.nacimiento.getMonth();
@@ -117,7 +122,10 @@ class persona {
 
 
                 titulo.innerText = `Numero de nacimiento para ${this.nombre} ${this.apellido}`;
+
                 document.body.appendChild(titulo);
+
+
 
 
                 switch (numeroNacimiento) {
@@ -153,7 +161,7 @@ class persona {
                     case 8:
                         document.body.appendChild(nuevo_parrafo);
                         nuevo_parrafo.innerText = "Para los nacidos el día " + dia + " del mes de " + meses[mes] + " del año " + año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del poder, la habilidad ejecutiva, la gestión, poder material y una tendencia al sacrificio pero también a no tener escrúpulos. Habilidades políticas, experto en manejar el poder y la autoridad, trabajan por causas y por alcanzar el reconocimiento, capacidad de decisión y mando.";
-
+                        break;
                     case 9:
                         document.body.appendChild(nuevo_parrafo);
                         nuevo_parrafo.innerText = "Para los nacidos el día " + dia + " del mes de " + meses[mes] + " del año " + año + ". El numero de nacimiento es " + numeroNacimiento + " \nSigno del genio artístico, sentido humanitario, tendencia al romance y a lo emotivamente sentimental. Animadamente amistosos y simpáticos, desinteresados, interesados en hacer de buena gana y bien su trabajo. Talento artístico y para la escritura. El número de la persistencia, generosidad y capacidad de empuje.";
@@ -163,7 +171,26 @@ class persona {
                         alert("Lo lamentamos, hubo un error en el cálculo, intentalo nuevamente");
                 };
 
+
+                // Ingreso elemento a la localstorage
+
+                let parrafoStorage = nuevo_parrafo.innerHTML;
+
+                let objetoNumeroNacimientoStorage = { nombre: this.nombre, apellido: this.apellido, texto: parrafoStorage };
+
+                console.log(`objetoNumeroNacimientoStorage ${objetoNumeroNacimientoStorage}`);
+
+                let objetoNumeroNacimientoJSON = JSON.stringify(objetoNumeroNacimientoStorage);
+
+                console.log(`objetoNumeroNacimientoJSON ${objetoNumeroNacimientoJSON}`);
+
+
+                localStorage.setItem("usuario", objetoNumeroNacimientoJSON);
+
+
             }
+
+
 
             // Limpia las variables para nuevo ingreso
 
@@ -174,20 +201,51 @@ class persona {
 
 
 
-        };
+        }; // Fin Onclick.
 
-        // Resetea las variables
+
+        // Boton Resetea las variables
 
         botonReset.onclick = () => {
 
-            document.getElementById(idElementoNombre).value = null;
-            document.getElementById(idElementoApellido).value = null;
-            document.getElementById(idElementoDiaNacimiento).value = null;
+                document.getElementById(idElementoNombre).value = null;
+                document.getElementById(idElementoApellido).value = null;
+                document.getElementById(idElementoDiaNacimiento).value = null;
 
 
-        }
+            } // Fin Boton Resetea Input
+
+        //Boton Recupera Datos del LocalStorage utilizando JSON y localStorage
+
+        botonRecuperaDatos.onclick = () => {
+
+                let usuarioRecuperado = JSON.parse(localStorage.getItem("usuario"));
+
+                console.log(`usuario ${localStorage.getItem("usuario")}`);
+
+                console.log(`usuario recuperado ${usuarioRecuperado}`);
+
+                let tituloRecuperado = document.createElement("p");
+                tituloRecuperado.classList.add("text-info");
+                tituloRecuperado.classList.add("bg-dark");
+                tituloRecuperado.classList.add("animate__animated");
+                tituloRecuperado.classList.add("animate__jackInTheBox");
+                tituloRecuperado.classList.add("text-center");
 
 
+                tituloRecuperado.innerText = `Numero de nacimiento para ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}`;
+
+                let parrafoRecuperado = document.createElement("p");
+                parrafoRecuperado.innerHTML = usuarioRecuperado.texto;
+
+                document.body.appendChild(tituloRecuperado);
+                document.body.appendChild(parrafoRecuperado);
+
+
+
+
+
+            } // Fin Boton Recupera Datos del LocalStorage
 
     }
 
@@ -229,7 +287,8 @@ let fecha = new Date();
 // También le puse un poco de clases de animación
 
 let header = document.getElementById("header");
-header.innerHTML = `<h1 class="animate__animated animate__bounce text-white bg-dark p-3"> TU NÚMERO DE NACIMIENTO </h1>  <h3 class= "p-3"> Calcula tu número de nacimiento astrológico introduciendo tus datos. Para calcular un nuevo número solo ingresa nuevos valores. Todos los números que calcules quedarán disponibles en la página </h3><br> `;
+
+header.innerHTML = ` <h1 class = "animate__animated animate__bounce text-white bg-dark p-3" > TU NÚMERO DE NACIMIENTO </h1>  <h3 class= "p-3"> Calcula tu número de nacimiento astrológico introduciendo tus datos. Para calcular un nuevo número solo ingresa nuevos valores. Todos los números que calcules quedarán disponibles en la página </h3> <br> `;
 
 
 //Se crea un array con elementos de la clase persona. La idea es recorrer el array calculando el numero de nacimiento
