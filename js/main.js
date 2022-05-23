@@ -14,6 +14,14 @@ class persona {
 
     ingresaNueva() {
 
+
+        // Define un array para ir almacenando los numeros de nacimiento ingresados por la pagina
+
+        let listaObjetosNumerodeNacimiento = [];
+
+
+        // Objetos DOM para poblar la página 
+
         let formulario_nueva_persona = document.createElement("div");
         document.body.appendChild(formulario_nueva_persona);
 
@@ -57,7 +65,6 @@ class persona {
         let idElementoDiaNacimiento = `diaNacimiento${i}`;
 
 
-        console.log(`imprime la variable concatenada "nombre${i}" que es ${idElementoNombre}`);
 
         // Al hacer click en el boton Calcula Numero de nacimiento, captura las variables
 
@@ -71,6 +78,7 @@ class persona {
 
 
         botonCalculaNumeroNacimiento.onclick = () => {
+
 
 
             this.nombre = document.getElementById(idElementoNombre).value;
@@ -89,21 +97,15 @@ class persona {
                 let año = this.nacimiento.getFullYear();
                 const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-                console.log(`this.nombre ${this.nombre}`);
-
-
-                console.log(`solo value ${document.getElementById(idElementoNombre).value} mas ${document.getElementById(idElementoApellido).value} mas ${document.getElementById(idElementoDiaNacimiento).value}`);
-                console.log(`las variables quedaron ${this.nombre} ${this.apellido} ${this.nacimiento}`);
-                console.log(`manipulando fecha ${this.nacimiento.getFullYear()} ${this.nacimiento.getDate()+1} ${this.nacimiento.getMonth()+1}`);
 
 
                 let numeroNacimiento = this.nacimiento.getFullYear() + this.nacimiento.getDate() + 1 + this.nacimiento.getMonth() + 1;
 
-                console.log("Entrando al metodo calculaNumeroNacimiento con valor de inicio :" + numeroNacimiento);
+
 
                 numeroNacimiento = (numeroNacimiento % 9 == 0) ? 9 : (numeroNacimiento % 9);
 
-                console.log("Entrando al metodo calculaNumeroNacimiento con valor calculado :" + numeroNacimiento);
+
 
                 // Declaramos variable para incorporar nuevos elementos con DOM
 
@@ -176,16 +178,26 @@ class persona {
 
                 let parrafoStorage = nuevo_parrafo.innerHTML;
 
-                let objetoNumeroNacimientoStorage = { nombre: this.nombre, apellido: this.apellido, texto: parrafoStorage };
 
-                console.log(`objetoNumeroNacimientoStorage ${objetoNumeroNacimientoStorage}`);
+                // Definición del objeto a ser almacenado 
+
+                let objetoNumeroNacimientoStorage = { nombre: this.nombre, apellido: this.apellido, texto: parrafoStorage };
 
                 let objetoNumeroNacimientoJSON = JSON.stringify(objetoNumeroNacimientoStorage);
 
-                console.log(`objetoNumeroNacimientoJSON ${objetoNumeroNacimientoJSON}`);
+                // Almacena usuarios secuencialmente en la localStorage
+
+                localStorage.setItem(`usuario${i}`, objetoNumeroNacimientoJSON);
+
+                listaObjetosNumerodeNacimiento.push(objetoNumeroNacimientoJSON);
+
+                // Utilizacion de Spread
+
+                console.log("Spread");
+
+                console.log(...listaObjetosNumerodeNacimiento);
 
 
-                localStorage.setItem("usuario", objetoNumeroNacimientoJSON);
 
 
             }
@@ -199,18 +211,16 @@ class persona {
             document.getElementById(idElementoDiaNacimiento).value = null;
 
 
-
+            i++;
 
         }; // Fin Onclick.
 
 
-        // Boton Resetea las variables
+        // Boton Resetea la pagina
 
         botonReset.onclick = () => {
 
-                document.getElementById(idElementoNombre).value = null;
-                document.getElementById(idElementoApellido).value = null;
-                document.getElementById(idElementoDiaNacimiento).value = null;
+                location.reload();
 
 
             } // Fin Boton Resetea Input
@@ -219,32 +229,37 @@ class persona {
 
         botonRecuperaDatos.onclick = () => {
 
-                let usuarioRecuperado = JSON.parse(localStorage.getItem("usuario"));
 
-                console.log(`usuario ${localStorage.getItem("usuario")}`);
+                // Recorremos el localStorage para recuperar todas las key almacenadas
 
-                console.log(`usuario recuperado ${usuarioRecuperado}`);
-
-                let tituloRecuperado = document.createElement("p");
-                tituloRecuperado.classList.add("text-info");
-                tituloRecuperado.classList.add("bg-dark");
-                tituloRecuperado.classList.add("animate__animated");
-                tituloRecuperado.classList.add("animate__jackInTheBox");
-                tituloRecuperado.classList.add("text-center");
+                for (i = 0; i < localStorage.length; i++) {
 
 
-                tituloRecuperado.innerText = `Numero de nacimiento para ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}`;
+                    let usuarioStorage = `usuario${i}`; // permite recorrer los usuarios almacenados en el localstorage
 
-                let parrafoRecuperado = document.createElement("p");
-                parrafoRecuperado.innerHTML = usuarioRecuperado.texto;
-
-                document.body.appendChild(tituloRecuperado);
-                document.body.appendChild(parrafoRecuperado);
+                    let usuarioRecuperado = JSON.parse(localStorage.getItem(usuarioStorage));
 
 
+                    let tituloRecuperado = document.createElement("p");
+                    tituloRecuperado.classList.add("text-info");
+                    tituloRecuperado.classList.add("bg-dark");
+                    tituloRecuperado.classList.add("animate__animated");
+                    tituloRecuperado.classList.add("animate__jackInTheBox");
+                    tituloRecuperado.classList.add("text-center");
+
+
+                    tituloRecuperado.innerText = `Numero de nacimiento para ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}`;
+
+                    let parrafoRecuperado = document.createElement("p");
+                    parrafoRecuperado.innerHTML = usuarioRecuperado.texto;
+
+                    document.body.appendChild(tituloRecuperado);
+                    document.body.appendChild(parrafoRecuperado);
 
 
 
+
+                }
             } // Fin Boton Recupera Datos del LocalStorage
 
     }
@@ -296,16 +311,5 @@ header.innerHTML = ` <h1 class = "animate__animated animate__bounce text-white b
 
 const listaPersonas = [];
 
-
-//Ciclo while para ingresar personas al array las veces que se desee, llamando a los metodos de las clases que nos permiten
-//ingresar los datos
-
-
 listaPersonas.push(new persona(nombre, apellido, new fechaNacimiento(fecha)));
 listaPersonas[i].ingresaNueva();
-
-
-//continua = prompt("¿Desea ingresar una nueva persona? si/no");
-//console.log(continua);
-
-console.log("muestra array en punto i " + i + listaPersonas[i].nombre);
