@@ -183,6 +183,18 @@ class persona {
 
                 let objetoNumeroNacimientoStorage = { nombre: this.nombre, apellido: this.apellido, texto: parrafoStorage };
 
+                const {
+                    nombre: nombre,
+                    apellido: apellido,
+                    texto: texto
+                } = objetoNumeroNacimientoStorage
+
+                console.log("Utilizando alias");
+                console.log(nombre);
+                console.log(apellido);
+                console.log(texto);
+
+
                 let objetoNumeroNacimientoJSON = JSON.stringify(objetoNumeroNacimientoStorage);
 
                 // Almacena usuarios secuencialmente en la localStorage
