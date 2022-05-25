@@ -88,7 +88,18 @@ class persona {
 
 
             if (this.nombre == null || this.apellido == null || this.nacimiento == null) {
-                alert("Complete todos los valores");
+
+                // Incorporación de SweetAlert cuando los valores del formulario están vacíos
+
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Complete todos los valores',
+                    icon: 'error',
+                    confirmButtonText: 'Ok!',
+                    backdrop: 'rgba(255, 0, 0, 0.45)'
+                })
+
+
 
             } else {
 
