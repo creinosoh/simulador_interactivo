@@ -253,6 +253,19 @@ class persona {
         botonRecuperaDatos.onclick = () => {
 
 
+
+
+                Toastify({
+                    text: "Recuperando los números de nacimiento que ingresaste!",
+                    duration: 3000,
+                    position: 'right',
+                    gravity: 'bottom',
+                    style: {
+                        background: 'linear-gradient(to right, 	#00D5FF, #000000)'
+                    }
+                }).showToast();
+
+
                 // Recorremos el localStorage para recuperar todas las key almacenadas
 
                 for (i = 0; i < localStorage.length; i++) {
