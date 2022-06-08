@@ -86,7 +86,6 @@ class persona {
             this.nacimiento = document.getElementById(idElementoDiaNacimiento).valueAsDate;
 
 
-
             if (this.nombre == null || this.apellido == null || this.nacimiento == null) {
 
                 // Incorporación de SweetAlert cuando los valores del formulario están vacíos
@@ -138,6 +137,44 @@ class persona {
 
                 document.body.appendChild(titulo);
 
+
+                // Fetch, invoca a API Para traer una imagen de perrito por cada numero de nacimiento, incorporando elementos DOM para posicionar la imagen
+
+
+                console.log("Fetch");
+
+                const contenedor_perrito = document.createElement('div');
+                const imagen_perrito = document.createElement('img');
+                const titulo_perrito = document.createElement('p');
+
+                contenedor_perrito.classList.add("container");
+
+                titulo_perrito.innerText = "Tu perrito de la suerte es:";
+
+                imagen_perrito.classList.add("rounded");
+                imagen_perrito.classList.add("mx-auto");
+                imagen_perrito.classList.add("d-block");
+
+
+                fetch('https://dog.ceo/api/breeds/image/random')
+                    .then(response => response.json())
+
+                .then(response => {
+
+                    console.log(response);
+
+                    imagen_perrito.src = response.message;
+                    console.log(`imagen perrito src ${imagen_perrito.src}`);
+
+                    document.body.appendChild(titulo_perrito);
+
+                    document.body.appendChild(imagen_perrito);
+
+
+
+                })
+
+                .catch(err => console.error(err));
 
 
 
