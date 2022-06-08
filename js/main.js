@@ -149,12 +149,21 @@ class persona {
 
                 contenedor_perrito.classList.add("container");
                 contenedor_perrito.classList.add("p-3");
+                contenedor_perrito.classList.add("w-25");
+
+
 
                 titulo_perrito.innerText = "Tu perrito de la suerte es:";
 
                 imagen_perrito.classList.add("rounded");
                 imagen_perrito.classList.add("mx-auto");
                 imagen_perrito.classList.add("d-block");
+                imagen_perrito.classList.add("img-thumbnail");
+                imagen_perrito.classList.add("img-fluid");
+
+
+
+
 
 
                 fetch('https://dog.ceo/api/breeds/image/random')
