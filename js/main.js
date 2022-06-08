@@ -148,6 +148,7 @@ class persona {
                 const titulo_perrito = document.createElement('p');
 
                 contenedor_perrito.classList.add("container");
+                contenedor_perrito.classList.add("p-3");
 
                 titulo_perrito.innerText = "Tu perrito de la suerte es:";
 
@@ -168,7 +169,9 @@ class persona {
 
                     document.body.appendChild(titulo_perrito);
 
-                    document.body.appendChild(imagen_perrito);
+                    document.body.appendChild(contenedor_perrito);
+
+                    contenedor_perrito.appendChild(imagen_perrito);
 
 
 
